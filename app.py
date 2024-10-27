@@ -1,11 +1,12 @@
 from flask import Flask, render_template,send_file
 import json
 import os
+import logging
 
 app = Flask(__name__)
 
 
-import logging
+
 
 def get_projects():
     try:
