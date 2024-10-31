@@ -40,7 +40,7 @@
                                 class="fas fa-arrow-right"></i></a>
                     </li>
 
-                    <!-- Toggle switch -->
+                    <!-- Toggle switch
                     <div class="theme-switch">
                         <input type="checkbox" id="switch" />
                         <label class="toggle-icons" for="switch">
@@ -49,7 +49,7 @@
                             <img class="sun" src="{{ url_for('static', filename='assets/sun.svg') }}"
                                 style="box-shadow: none;" />
                         </label>
-                    </div>
+                    </div> -->
 
                     <!-- Hamburger menu -->
                     <div class="hamburger">
@@ -70,38 +70,114 @@
     {% block footer %}
     <footer id="footer">
         <div class="container">
-            <a href="mailto:parthibkarak2004@gmail.com">parthibkarak2004@gmail.com</a>
-            <!-- Social links -->
-            <div class="social">
-                <a href="https://www.linkedin.com/in/parthib-karak-9a0bb1286/" target="_blank"><img
-                        src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Twitter"
-                        style="border-radius: 0px;"></a>
-                <a href="https://x.com/babaii_0007?t=he1ARJb926t-6KX-e0ubnQ&s=09" target="_blank"><img
-                        src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="Linkedin"
-                        style="border-radius: 0px;"></a>
-                <a href="https://stackoverflow.com/users/27420096/parthib-karak" target="_blank"><img
-                        src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="Stack"
-                        style="border-radius: 0px;"></a>
-                <a href="https://www.facebook.com/parthib.karak/" target="_blank"><img
-                    src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="FB"
-                    style="border-radius: 0px;"></a>
-                <a href="https://www.instagram.com/babaiii_0007/" target="_blank"><img
-                    src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="Insta"
-                    style="border-radius: 0px;"></a>
-                <a href="https://github.com/Parthibkarak71" target="_blank"><img
-                    src="https://static-00.iconduck.com/assets.00/github-icon-2048x1988-jzvzcf2t.png" 
-                    alt="Github"
-                    style="border-radius: 0px;"></a>
-                    <a href="https://t.me/Babaiii_0007" target="_blank"><img
-                        src="https://cdn.pixabay.com/photo/2021/12/27/10/50/telegram-icon-6896828_1280.png" 
-                        alt="Telegram"
-                        style="border-radius: 0px;"></a>
+            <!-- Contact Email -->
+            <a href="mailto:parthibkarak2004@gmail.com" class="footer-email">parthibkarak2004@gmail.com</a>
+
+            <!-- Social Links -->
+            <div class="footer-social-links">
+                <a href="https://www.linkedin.com/in/parthib-karak-9a0bb1286/" target="_blank">
+                    <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn">
+                </a>
+                <a href="https://x.com/babaii_0007?t=he1ARJb926t-6KX-e0ubnQ&s=09" target="_blank">
+                    <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="Twitter">
+                </a>
+                <a href="https://stackoverflow.com/users/27420096/parthib-karak" target="_blank">
+                    <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="Stack Overflow">
+                </a>
+                <a href="https://www.facebook.com/parthib.karak/" target="_blank">
+                    <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/babaiii_0007/" target="_blank">
+                    <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="Instagram">
+                </a>
+                <a href="https://github.com/Parthibkarak71" target="_blank">
+                    <img src="https://static-00.iconduck.com/assets.00/github-icon-2048x1988-jzvzcf2t.png" alt="GitHub">
+                </a>
+                <a href="https://t.me/Babaiii_0007" target="_blank">
+                    <img src="https://cdn.pixabay.com/photo/2021/12/27/10/50/telegram-icon-6896828_1280.png" alt="Telegram">
+                </a>
             </div>
-            <!-- Attribution -->
-            <p>Copyright &copy; Parthib Karak 2024, All rights reserved</p>
+
+            <!-- Footer Attribution -->
+            <p class="footer-attribution">&copy; 2024 Parthib Karak. All rights reserved.</p>
         </div>
     </footer>
-    {% endblock %}
+
+    <style>
+        #footer {
+            background-color: #121212;
+            padding: 20px 0;
+            color: #fff;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-email {
+            display: block;
+            margin-bottom: 15px;
+            color: #f3f4f6;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-email:hover {
+            color: #ddc722;
+        }
+
+        .footer-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .footer-social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .footer-social-links img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-social-links a:hover {
+            background-color: #ddc722;
+            transform: scale(1.1);
+        }
+
+        .footer-attribution {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #bbb;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .footer-social-links {
+                gap: 10px;
+            }
+            .footer-social-links a {
+                width: 35px;
+                height: 35px;
+            }
+            .footer-email {
+                font-size: 0.85rem;
+            }
+            .footer-attribution {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+{% endblock %}
+
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

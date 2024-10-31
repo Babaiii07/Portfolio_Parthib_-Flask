@@ -1,25 +1,188 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<!-- Projects -->
+<!-- Particles Background -->
+<div id="particles-js"></div>
+
+<!-- Projects Section -->
 <section id="projects" class="project-container container">
     <div class="content-text">
-        <h2>Working Projects</h2>
+        <h2>My Current Projects</h2>
+        <p class="subtitle">Take a look at some projects I’m actively working on</p>
     </div>
+    <div class="cards-wrapper">
         {% for card in cards %}
-        <div class="card">
-            <div class="card-header">
-                <h1>{{card.name}}</h1>
-            </div>
-            <div class="card-body">
-                <p class="card-text">{{card.description}}</p>
+        <div class="card" data-aos="fade-up">
+            <div class="card-content">
+                <h3>{{ card.name }}</h3>
+                <p class="card-description">{{ card.description }}</p>
             </div>
             {% if card.url %}
-            <div class="container">
-                <a href="{{card.url}}" target="_blank" class="btn btn-secondary">View Project <i class="fab fa-github"></i></a>
+            <div class="button-container">
+                <a href="{{ card.url }}" target="_blank" class="btn-view">
+                    View Project <i class="fab fa-github btn-icon"></i>
+                </a>
             </div>
             {% endif %}
         </div>
         {% endfor %}
+    </div>
 </section>
+
+<!-- CSS for Transparent Style and Animation -->
+<style>
+    /* Particles Background Styling */
+    #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    /* Transparent Section Styling */
+    .project-container {
+        padding: 70px 20px;
+        background-color: rgba(255, 255, 255, 0.05); /* Very light transparent background */
+        text-align: center;
+        position: relative;
+        backdrop-filter: blur(5px); /* Adds a slight blur effect to the background */
+        border-radius: 12px;
+    }
+
+    /* Section Header */
+    .project-container h2 {
+        font-size: 2.5rem;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        color: #ddd;
+        margin-bottom: 40px;
+    }
+
+    /* Cards Layout */
+    .cards-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        align-items: start;
+    }
+
+    /* Card Style */
+    .card {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.1); /* Transparent card background */
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0.9;
+    }
+
+    /* Card Hover Effect */
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(255, 255, 255, 0.15);
+    }
+
+    /* Card Content Styling */
+    .card-content h3 {
+        font-size: 1.5rem;
+        color: #eee;
+        margin-bottom: 10px;
+    }
+
+    .card-description {
+        font-size: 1rem;
+        color: #ccc;
+        line-height: 1.6;
+    }
+
+    /* Button Style */
+    .btn-view {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 25px;
+        font-size: 1rem;
+        color: #fff;
+        background-color: rgba(59, 130, 246, 0.7);
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Button Hover Effect */
+    .btn-view:hover {
+        background-color: rgba(37, 99, 235, 0.85);
+        box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+        transform: translateY(-3px);
+    }
+
+    /* Icon Animation */
+    .btn-icon {
+        margin-left: 6px;
+        transition: transform 0.3s ease;
+    }
+
+    .btn-view:hover .btn-icon {
+        transform: translateX(5px);
+    }
+</style>
+
+<!-- JavaScript for Particle Animation -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#ffffff" },
+            shape: { type: "circle", stroke: { width: 0, color: "#000000" }, polygon: { nb_sides: 5 } },
+            opacity: { value: 0.4, random: false },
+            size: { value: 3, random: true },
+            line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false, attract: { enable: false } }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: { enable: true, mode: "repulse" },
+                onclick: { enable: true, mode: "push" }
+            }
+        },
+        retina_detect: true
+    });
+</script>
+
+<!-- JavaScript for Scroll Animations -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.card');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+    });
+</script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
 {% endblock %}

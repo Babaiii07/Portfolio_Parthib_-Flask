@@ -1,217 +1,375 @@
 {% extends 'base.html' %}
 
 {% block headersection %}
-
 <section class="header-container">
-  <img class="profile-image" src="{{ url_for('static', filename='assets/DP.jpg') }}" alt="" />
-  <h1>Hey Visitor! I'm Parthib Karak</h1>
+    <img class="profile-image" src="{{ url_for('static', filename='assets/DP.jpg') }}" alt="" />
+    <h1>Hey Visitor! I'm Parthib Karak</h1>
 
-  <div class="content-text">
-    <h2>Python Backend Developer</h2>
-    <p>
-      Expertise in Python, C, C++, Java, Kotlin, Flask, RESTful APIs and Machine Learning
-    </p>
+    <div class="content-text">
+        <h2 class="typewriter"></h2>
+        <p>
+            Expertise in Python, C, C++, Java, Kotlin, Flask, RESTful APIs, and Machine Learning
+        </p>
+        <script src="/static/js/type.js"></script>
+    </div>
+    <div class="social-links">
+      <a href="https://github.com/Parthibkarak71" target="_blank" class="social-icon">
+          <img src="https://img.icons8.com/material-outlined/24/000000/github.png" alt="GitHub" />
+      </a>
+      <a href="https://stackoverflow.com/users/27420096/parthib-karak" target="_blank" class="social-icon">
+          <img src="https://th.bing.com/th/id/OIP.LuS7cXFMJs5tjMKFr0zf-QHaHa?rs=1&pid=ImgDetMain" alt="Stack Overflow" />
+      </a>
+      <a href="https://www.instagram.com/babaiii_0007" target="_blank" class="social-icon">
+          <img src="https://img.icons8.com/metro/24/000000/instagram-new.png" alt="Instagram" />
+      </a>
+      <a href="https://www.linkedin.com/in/parthib-karak-9a0bb1286/" target="_blank" class="social-icon">
+          <img src="https://th.bing.com/th/id/OIP.ozDiSGJlUqI6815cRlJiNAHaHa?rs=1&pid=ImgDetMain" alt="LinkedIn" />
+      </a>
+      <a href="https://x.com/babaii_0007?t=he1ARJb926t-6KX-e0ubnQ&s=09" target="_blank" class="social-icon">
+          <img src="https://img.icons8.com/color/24/000000/twitter.png" alt="Twitter" />
+      </a>
+      <a href="https://www.facebook.com/parthib.karak/" target="_blank" class="social-icon">
+          <img src="https://img.icons8.com/color/24/000000/facebook.png" alt="Facebook" />
+      </a>
+      <style>
+        .social-links {
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+          padding: 20px;
+      }
+      
+      .social-icon {
+          display: inline-block;
+          width: 50px;
+          height: 50px;
+          background-color: #f3f4f6;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: transform 0.3s ease, background-color 0.3s ease;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .social-icon img {
+          width: 24px;
+          height: 24px;
+          transition: transform 0.3s ease;
+      }
+      
+      .social-icon:hover {
+          transform: scale(1.15);
+          background-color: #ddc722; /* Bright yellow background on hover */
+          box-shadow: 0 8px 15px rgba(76, 70, 70, 0.2);
+      }
+      
+      .social-icon:hover img {
+          transform: scale(1.15);
+          filter: brightness(0.8); /* Slight dimming effect for contrast */
+      }
+      
+      </style>
   </div>
-  <a href="{{ url_for('contact_page') }}" class="btn btn-secondary">Connect With Me</a>
+
 </section>
 {% endblock %}
 
 {% block body %}
 <section id="projects" class="project-container container">
-  <div class="division"></div>
+    <div class="division"></div>
 
-  <div class="content-text">
-    <h2>Skills</h2>
-    <div class="scroll-container">
-      <table style="text-align: center;">
-        <tr>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
-              <h4>Python</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd9Hm6YzVDnc31jkaaU3Wej-CaUeWXD4ljOw&s"
-              alt="C" width="55" height="55">
-              <h4>C</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg"
-              alt="C++" width="55" height="55">
-              <h4>C++</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://th.bing.com/th/id/OIP.jjYyn_OvqF3VPfTrWelPhAHaD4?rs=1&pid=ImgDetMain"
-              alt="Kotlin" width="100" height="100">
-              <h4>Kotlin</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3S9FqOWEjqGZPQ98L55jzxu9OXbJqwXx_Gw&s"
-              alt="Java" width="55" height="55">
-              <h4>Java</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img class="github-icon" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Framework/flask.svg"
-              alt="Flask" width="50" height="50">
-              <h4>Flask</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 15px;">
-              <img src="https://cdn.worldvectorlogo.com/logos/django.svg"
-              alt="Django" width="50" height="50">
-              <h4>Django</h4>
-            </div>
-          </td>
-          
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/mysqlworkbench.svg"
-              alt="MySQL" width="55" height="55">
-              <h4>MySQL</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://d3lkc3n5th01x7.cloudfront.net/wp-content/uploads/2023/11/07002655/Machine-Learning-Services-banner.png"
-              alt="Machine Learning" width="80" height="80">
-              <h4>Machine Learning</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKm687vjaF2pTwtiRSJcOgRLuo8Ck9fg5JGA&s"
-              alt="Deep Learning" width="55" height="55">
-              <h4>Deep Learning</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLkaf7w-TDcGhd4fbtjVTYTo6W8t1T_L6KfA&s"
-              alt="Gen AI" width="55" height="55">
-              <h4>Gen AI</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdkOmnl8E3pqAXPlC50KzEHpu6plXsEQ6ZHA&s"
-              alt="NLP" width="55" height="55">
-              <h4>NLP</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://img-c.udemycdn.com/course/750x422/1533864_a443.jpg"
-              alt="Computer Vision" width="55" height="55">
-              <h4>Computer Vision</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Devops/aws.svg"
-              alt="AWS" width="55" height="55">
-              <h4>AWS</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Devops/gcp.svg"
-              alt="GCP" width="55" height="55">
-              <h4>GCP</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/BaaS/heroku.svg"
-              alt="Heroku" width="55" height="55">
-              <h4>Heroku</h4>
-            </div>
-          </td>
-          
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Devops/docker.svg"
-              alt="docker" width="55" height="55">
-              <h4>Docker</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img class="github-icon"  src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Devops/bash.svg"
-              alt="bash" width="55" height="55">
-              <h4>Bash</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg"
-              alt="git" width="55" height="55">
-              <h4>Git</h4>
-            </div>
-          </td>
-          <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-              <img class="github-icon" src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-              alt="GitHub" width="55" height="55">
-              <h4>GitHub</h4>
-            </div>
-          </td>
-          
-        </tr>
-      </table>
+    <div class="content-text">
+        <h2>Skills</h2>
+        <div class="scroll-container">
+            <table style="text-align: center;">
+                <tr>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+                            <h4>Python</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd9Hm6YzVDnc31jkaaU3Wej-CaUeWXD4ljOw&s" alt="C" width="55" height="55">
+                            <h4>C</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++" width="55" height="55">
+                            <h4>C++</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://th.bing.com/th/id/OIP.jjYyn_OvqF3VPfTrWelPhAHaD4?rs=1&pid=ImgDetMain" alt="Kotlin" width="100" height="100">
+                            <h4>Kotlin</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3S9FqOWEjqGZPQ98L55jzxu9OXbJqwXx_Gw&s" alt="Java" width="55" height="55">
+                            <h4>Java</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img class="github-icon" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Framework/flask.svg" alt="Flask" width="50" height="50">
+                            <h4>Flask</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 15px;">
+                            <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="Django" width="50" height="50">
+                            <h4>Django</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/mysqlworkbench.svg" alt="MySQL" width="55" height="55">
+                            <h4>MySQL</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://d3lkc3n5th01x7.cloudfront.net/wp-content/uploads/2023/11/07002655/Machine-Learning-Services-banner.png" alt="Machine Learning" width="80" height="80">
+                            <h4>Machine Learning</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKm687vjaF2pTwtiRSJcOgRLuo8Ck9fg5JGA&s" alt="Deep Learning" width="55" height="55">
+                            <h4>Deep Learning</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLkaf7w-TDcGhd4fbtjVTYTo6W8t1T_L6KfA&s" alt="Gen AI" width="55" height="55">
+                            <h4>Gen AI</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdkOmnl8E3pqAXPlC50KzEHpu6plXsEQ6ZHA&s" alt="NLP" width="55" height="55">
+                            <h4>NLP</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://img-c.udemycdn.com/course/750x422/1533864_a443.jpg" alt="Computer Vision" width="55" height="55">
+                            <h4>Computer Vision</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Devops/aws.svg" alt="AWS" width="55" height="55">
+                            <h4>AWS</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Devops/gcp.svg" alt="GCP" width="55" height="55">
+                            <h4>GCP</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/BaaS/heroku.svg" alt="Heroku" width="55" height="55">
+                            <h4>Heroku</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Devops/docker.svg" alt="docker" width="55" height="55">
+                            <h4>Docker</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img class="github-icon" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Devops/bash.svg" alt="bash" width="55" height="55">
+                            <h4>Bash</h4>
+                        </div>
+                    </td>
+                    <td style="padding: 20px;">
+                        <div class="textcard" style="padding: 20px;">
+                            <img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="Git" width="55" height="55">
+                            <h4>Git</h4>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="arrow-container">
+        </div>
     </div>
-    <div class="arrow-container">
-    </div>
-  </div>
 </section>
-
 
 <!-- Projects -->
 <section id="projects" class="project-container container">
-  <div class="division"></div>
+    <div class="division"></div>
 
-  <div class="content-text">
-    <h2>Popular Project</h2>
-    <p>Check out some of my projects</p>
-  </div>
-
-  <div class="container">
-    <div class="textcard">
-      <table>
-        <tr>
-          <td>
-            <div class="container">
-              <h3>Voice Assistant</h3>
-              <p style="text-align: justify;">
-                Voice assistant using Python. This assistant can understand and respond to user's voice commands.
-                It uses the Google Assistant API and SpeechRecognition library to convert voice commands into text and understand the user's intent.
-                This assistant can be trained to answer questions, perform basic tasks, and provide real-time weather updates.
-              </p>
-            </div>
-          </td>
-          <td>
-            <div class="container">
-              <h3>AI based healthCare Chatbot</h3>
-              <p style="text-align: justify;">
-                AI-powered chatbot for healthcare. This chatbot can answer medical questions, provide real-time health updates, and recommend appropriate treatment options.<br>
-                It uses natural language processing techniques, machine learning algorithms, and a database of medical knowledge to provide accurate and relevant information.
-              </p>
-            </div>
-          </td>
-        </tr>
-      </table>
+    <div class="content-text">
+        <h2>Popular Project</h2>
+        <p>Check out some of my projects</p>
     </div>
-  </div>
-  <a href="{{url_for('projects_page')}}" class="btn btn-secondary">See More <i class="fas fa-arrow-right"></i></a>
+
+    <div class="container">
+        <div class="textcard">
+            <table>
+                <tr>
+                    <td>
+                        <div class="container">
+                            <h3>Voice Assistant</h3>
+                            <p style="text-align: justify;">
+                                Voice assistant using Python. This assistant can understand and respond to user's voice commands.
+                                It uses the Google Assistant API and SpeechRecognition library to convert voice commands into text and understand the user's intent.
+                                This assistant can be trained to answer questions, perform basic tasks, and provide real-time weather updates.
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="container">
+                            <h3>AI based healthCare Chatbot</h3>
+                            <p style="text-align: justify;">
+                                AI-powered chatbot for healthcare. This chatbot can answer medical questions, provide real-time health updates, and recommend appropriate treatment options.<br>
+                                It uses natural language processing techniques, machine learning algorithms, and a database of medical knowledge to provide accurate and relevant information.
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <a href="{{url_for('projects_page')}}" class="btn btn-secondary">See More <i class="fas fa-arrow-right"></i></a>
 </section>
+
+<div id="particles-js"></div>
+
+<style>
+  #particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto; /* This allows clicks to pass through */
+    z-index: 1; /* Behind the content */
+  }
+  
+  .header-container, .project-container, .content-text {
+    position: relative; /* Stack content above the particles */
+    z-index: 2; /* Bring content to front */
+  }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  particlesJS("particles-js", {
+  particles: {
+      number: {
+          value: 80,
+          density: {
+              enable: true,
+              value_area: 800
+          }
+      },
+      color: {
+          value: "#ffffff"
+      },
+      shape: {
+          type: "circle",
+          stroke: {
+              width: 0,
+              color: "#000000"
+          },
+          polygon: {
+              nb_sides: 5
+          }
+      },
+      opacity: {
+          value: 0.5,
+          random: false,
+          anim: {
+              enable: false,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false
+          }
+      },
+      size: {
+          value: 3,
+          random: true,
+          anim: {
+              enable: false,
+              speed: 40,
+              size_min: 0.1,
+              sync: false
+          }
+      },
+      line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1
+      },
+      move: {
+          enable: true,
+          speed: 6,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200
+          }
+      }
+  },
+  interactivity: {
+      detect_on: "canvas",
+      events: {
+          onhover: {
+              enable: true,
+              mode: "repulse" // Change to "grab" or other effects as desired
+          },
+          onclick: {
+              enable: true,
+              mode: "push"
+          },
+          resize: true
+      },
+      modes: {
+          grab: {
+              distance: 140,
+              line_linked: {
+                  opacity: 1
+              }
+          },
+          bubble: {
+              distance: 400,
+              size: 40,
+              duration: 2,
+              opacity: 8,
+              speed: 3
+          },
+          repulse: {
+              distance: 200,
+              duration: 0.4
+          },
+          push: {
+              particles_nb: 4
+          },
+          remove: {
+              particles_nb: 2
+          }
+      }
+  },
+  retina_detect: true
+});
+</script>
 {% endblock %}

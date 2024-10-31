@@ -53,3 +53,8 @@ if (currentTheme) {
     toggleSwitch.checked = true;
   }
 }
+
+    // This script will trigger an alert message when the form is submitted
+document.getElementById('contactForm').onsubmit = function() {
+    alert("I will reply to you as soon as possible");
+  };

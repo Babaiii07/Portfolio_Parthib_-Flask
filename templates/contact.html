@@ -9,81 +9,271 @@
 {% endblock %}
 
 {% block body %}
-<section id="projects" class="project-container container">
+<section class="contact-form-container">
+    <h2>Get in Touch</h2>
+    <form action="{{ url_for('contact_page') }}" method="post">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="phone" placeholder="Your Phone Number" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4; /* Light background for better contrast */
+            color: #343a40;
+            margin: 0;
+            padding: 0;
+        }
+    
+        .header-container {
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+    
+        .header-container h2 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+    
+        .textcard {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 120px;
+            position: relative; /* Added for animation */
+            overflow: hidden; /* For image hover effect */
+        }
+    
+        .textcard img {
+            transition: transform 0.3s ease;
+        }
+    
+        .textcard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+    
+        .textcard:hover img {
+            transform: scale(1.1);
+        }
+    
+        .contact-form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+    
+        .contact-form-container h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #007bff;
+            animation: slideIn 0.5s ease-in-out;
+        }
+    
+        .contact-form-container input,
+        .contact-form-container textarea {
+            width: 90%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border 0.3s, box-shadow 0.3s;
+            font-size: 1rem;
+        }
+    
+        .contact-form-container input:focus,
+        .contact-form-container textarea:focus {
+            border: 1px solid #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+    
+        .contact-form-container button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+    
+        .contact-form-container button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+    
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .textcard {
+                width: 100px; /* Adjust card width for smaller screens */
+            }
+    
+            .header-container h2 {
+                font-size: 2rem; /* Adjust header font size */
+            }
+    
+            .contact-form-container {
+                padding: 20px; /* Adjust padding for smaller screens */
+            }
+    
+            .contact-form-container h2 {
+                font-size: 1.5rem; /* Adjust heading font size */
+            }
+        }
+        .contact-form-container {
+            position: relative; /* Ensure the container is positioned for the pseudo-element */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            max-width: 600px;
+            margin: 40px auto;
+            color: #fff; /* Change text color to white for better contrast */
+            overflow: hidden; /* Prevent overflow of the pseudo-element */
+        }
 
-    <div class="scroll-container">
-    <table style="text-align: center;">
-        <tr>
-        <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-                <a href="https://www.linkedin.com/in/parthib-karak-9a0bb1286/" target="_blank"><img
-                    alt="Linkedin" width="55" height="55"
-                    src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Twitter"
-                    style="border-radius: 0px;"></a>
-            <h4>Linkedin</h4>
-            </div>
-        </td>
-        <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-                <a href= "https://x.com/babaii_0007?t=he1ARJb926t-6KX-e0ubnQ&s=09" target="_blank"><img
-                    alt="Twitter" width="55" height="55"
-                    src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="Linkedin"
-                    style="border-radius: 0px;"></a>
-            <h4>Twitter</h4>
-            </div>
-        </td>
-        <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-                <a href="https://stackoverflow.com/users/27420096/parthib-karak" target="_blank"><img
-                    alt="stack" width="55" height="55"
-                    src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="Stack"
-                    style="border-radius: 0px;"></a>
-            <h4>Stack Overflow</h4>
-            </div>
-        </td>
-        <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-                <a href="https://www.facebook.com/parthib.karak/" target="_blank"><img
-                    alt="Facebook" width="55" height="55"
-                    src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="FB"
-                    style="border-radius: 0px;"></a>
-            <h4>Facebook</h4>
-            </div>
-        </td>
-        <td  style="padding: 20px;">
-            <div class="textcard"  style="padding: 20px;">
-                <a href="https://www.instagram.com/babaiii_0007/" target="_blank"><img
-                    alt="Instagram" width="55" height="55"
-                    src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="Insta"
-                    style="border-radius: 0px;"></a>
-            <h4>Instagram</h4>
-            </div>
-        </td>
-        <td style="padding: 20px;">
-            <div class="textcard" style="padding: 20px;">
-                <a href="https://github.com/Parthibkarak71" target="_blank">
-                    <img class="github-icon" 
-                         src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
-                         alt="Github" width="55" height="55" 
-                         style="border-radius: 0px;">
-                </a>
-                <h4>GitHub</h4>
-            </div>
-        </td> 
-    </td>
-    <td style="padding: 20px;">
-        <div class="textcard" style="padding: 20px;">
-            <a href="https://t.me/Babaiii_0007" target="_blank">
-                <img class="Telegram-icon" 
-                     src="https://cdn.pixabay.com/photo/2021/12/27/10/50/telegram-icon-6896828_1280.png" 
-                     alt="Telegram" width="55" height="55" 
-                     style="border-radius: 0px;">
-            </a>
-            <h4>Telegram</h4>
-        </div>
-    </td>       
-        </tr>
-    </table>
+        .contact-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('/static/assets/971.jpg'); /* Background image */
+            background-size: cover; /* Cover the entire container */
+            background-position: center; /* Center the background image */
+            opacity: 0.5; /* Adjust this value to reduce transparency (0 is fully transparent, 1 is fully opaque) */
+            z-index: 1; /* Position below the text */
+        }
+
+        .contact-form-container h2,
+        .contact-form-container input,
+        .contact-form-container textarea,
+        .contact-form-container button {
+            position: relative; /* Position above the pseudo-element */
+            z-index: 2; /* Ensure text and form elements are above the overlay */
+        }
+
+        .contact-form-container input,
+        .contact-form-container textarea {
+            background-color: rgba(255, 255, 255, 0.8); /* Light background for input fields */
+            color: #343a40; /* Dark text color */
+        }
+
+        .contact-form-container button {
+            background-color: rgba(0, 123, 255, 0.9); /* Semi-transparent button background */
+        }
+
+        .contact-form-container button:hover {
+            background-color: rgba(0, 86, 179, 0.9); /* Darken on hover */
+        }
+    </style>
+</section>
+<section id="projects" class="project-container container">
+    <div class="social-links">
+        <a href="https://github.com/Parthibkarak71" target="_blank" class="social-icon">
+            <img src="https://img.icons8.com/material-outlined/24/000000/github.png" alt="GitHub" />
+        </a>
+        <a href="https://stackoverflow.com/users/27420096/parthib-karak" target="_blank" class="social-icon">
+            <img src="https://th.bing.com/th/id/OIP.LuS7cXFMJs5tjMKFr0zf-QHaHa?rs=1&pid=ImgDetMain" alt="Stack Overflow" />
+        </a>
+        <a href="https://www.instagram.com/babaiii_0007" target="_blank" class="social-icon">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbeQEaLYtW8864NUrNmf8OtltgNKJSvhx5xA&s" alt="Instagram" />
+        </a>
+        <a href="https://www.linkedin.com/in/parthib-karak-9a0bb1286/" target="_blank" class="social-icon">
+            <img src="https://th.bing.com/th/id/OIP.ozDiSGJlUqI6815cRlJiNAHaHa?rs=1&pid=ImgDetMain" alt="LinkedIn" />
+        </a>
+        <a href="https://x.com/babaii_0007?t=he1ARJb926t-6KX-e0ubnQ&s=09" target="_blank" class="social-icon">
+            <img src="https://img.icons8.com/color/24/000000/twitter.png" alt="Twitter" />
+        </a>
+        <a href="https://www.facebook.com/parthib.karak/" target="_blank" class="social-icon">
+            <img src="https://img.icons8.com/color/24/000000/facebook.png" alt="Facebook" />
+        </a>
+        <style>
+          .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-icon img {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.15);
+            background-color: #ddc722; /* Bright yellow background on hover */
+            box-shadow: 0 8px 15px rgba(76, 70, 70, 0.2);
+        }
+        
+        .social-icon:hover img {
+            transform: scale(1.15);
+            filter: brightness(0.8); /* Slight dimming effect for contrast */
+        }
+        
+        </style>
+        
     </div>
+    
+  
 </section>
 {% endblock %}
