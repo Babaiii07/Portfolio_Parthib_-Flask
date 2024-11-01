@@ -25,9 +25,12 @@
         <nav class="navbar">
             <div class="container">
                 <!-- Logo -->
-                <h1 id="logo">     
-                    <img class="/" src="{{ url_for('static', filename='assets/DP.jpg') }}" alt="" />
+                <h1 id="logo">
+                    <a href="{{ url_for('main_page') }}">
+                        <img src="{{ url_for('static', filename='assets/DP.jpg') }}" alt="Logo" />
+                    </a>
                 </h1>
+                
 
                 <!-- Navbar links -->
                 <ul class="nav-menu">
@@ -70,9 +73,17 @@
     {% block footer %}
     <footer id="footer">
         <div class="container">
+            <!-- Quick Switch Links -->
+            <div class="quick-switch">
+                <a href="{{ url_for('main_page') }}">Home</a>
+                <a href="{{ url_for('about_page') }}">About</a>
+                <a href="{{ url_for('projects_page') }}">Projects</a>
+                <a href="{{ url_for('contact_page') }}">Contact</a>
+            </div>
+    
             <!-- Contact Email -->
             <a href="mailto:parthibkarak2004@gmail.com" class="footer-email">parthibkarak2004@gmail.com</a>
-
+    
             <!-- Social Links -->
             <div class="footer-social-links">
                 <a href="https://www.linkedin.com/in/parthib-karak-9a0bb1286/" target="_blank">
@@ -97,86 +108,104 @@
                     <img src="https://cdn.pixabay.com/photo/2021/12/27/10/50/telegram-icon-6896828_1280.png" alt="Telegram">
                 </a>
             </div>
-
+    
             <!-- Footer Attribution -->
             <p class="footer-attribution">&copy; 2024 Parthib Karak. All rights reserved.</p>
         </div>
     </footer>
-
+    
     <style>
-        #footer {
-            background-color: #121212;
-            padding: 20px 0;
-            color: #fff;
-            text-align: center;
-            font-size: 0.9rem;
-        }
+    #footer {
+        background-color: #1a1a1a; /* Darker background color for better contrast */
+        padding: 20px 0;
+        color: #f0f0f0; /* Light text color */
+        text-align: center;
+        font-size: 0.9rem;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
+    }
 
-        .footer-email {
-            display: block;
-            margin-bottom: 15px;
-            color: #f3f4f6;
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-email:hover {
-            color: #ddc722;
-        }
+    .quick-switch {
+        margin-bottom: 15px;
+    }
 
+    .quick-switch a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #f0f0f0; /* Light color for links */
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .quick-switch a:hover {
+        color: #ffcc00; /* Bright yellow hover color */
+    }
+
+    .footer-email {
+        display: block;
+        margin-bottom: 15px;
+        color: #f0f0f0; /* Light color for email */
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-email:hover {
+        color: #ffcc00; /* Bright yellow hover color */
+    }
+
+    .footer-social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .footer-social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: #333; /* Dark background for social icons */
+        border-radius: 50%;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .footer-social-links img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-social-links a:hover {
+        background-color: #ffcc00; /* Bright yellow hover background color */
+        transform: scale(1.1);
+    }
+
+    .footer-attribution {
+        margin-top: 10px;
+        font-size: 0.8rem;
+        color: #b3b3b3; /* Lighter color for attribution */
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
         .footer-social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
+            gap: 10px;
         }
-
         .footer-social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #333;
-            border-radius: 50%;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            width: 35px;
+            height: 35px;
         }
-
-        .footer-social-links img {
-            width: 20px;
-            height: 20px;
+        .footer-email {
+            font-size: 0.85rem;
         }
-
-        .footer-social-links a:hover {
-            background-color: #ddc722;
-            transform: scale(1.1);
-        }
-
         .footer-attribution {
-            margin-top: 10px;
-            font-size: 0.8rem;
-            color: #bbb;
+            font-size: 0.75rem;
         }
+    }
+</style>
 
-        /* Responsive */
-        @media (max-width: 600px) {
-            .footer-social-links {
-                gap: 10px;
-            }
-            .footer-social-links a {
-                width: 35px;
-                height: 35px;
-            }
-            .footer-email {
-                font-size: 0.85rem;
-            }
-            .footer-attribution {
-                font-size: 0.75rem;
-            }
-        }
-    </style>
-{% endblock %}
+    {% endblock %}    
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

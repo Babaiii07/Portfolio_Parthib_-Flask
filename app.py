@@ -3,9 +3,10 @@ import json
 import os
 import logging
 import csv
+import secrets
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Change this to a random secret key
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', secrets.token_hex(16)) 
 
 def get_projects():
     try:
@@ -48,8 +49,6 @@ def contact_page():
         email = request.form['email']
         phone = request.form['phone']
         message = request.form['message']
-
-        # Save to CSV
         with open('contact_requests.csv', mode='a', newline='') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow([name, email, phone, message])

@@ -2,33 +2,48 @@
     "projects": [
         {
             "name": "Voice Assistant",
-            "description": "A Python-based voice assistant that opens websites, sends emails, plays music, fetches news and weather, and interacts with OpenAI for responses. Supports system controls, WhatsApp messaging, and is customizable.",
-            "url": "https://github.com/Parthibkarak71/voice-assistant"
+            "description": "A versatile voice assistant that seamlessly handles web-based tasks like browsing, news updates, and weather checks, plays music, tells jokes, and offers AI-based responses using the Llama model. Additionally, it manages system operations such as shutdown and sleep commands, creating an all-in-one personal productivity tool.",
+            "url": "https://github.com/Babaiii07/Melody_Voice_Assistant.git"
         },
         {
             "name": "Snake Game",
-            "description": "A Python Snake game built with pygame where players control a snake to collect food and grow without hitting boundaries. Features score tracking, restart option, and simple arrow key controls.",
+            "description": "A classic Python Snake game built with Pygame where players control a snake to gather food and grow while avoiding boundary collisions. It includes score tracking, a restart option, and responsive arrow key controls, providing an engaging experience as players try to achieve the highest score possible",
             "url": "https://github.com/Parthibkarak71/SNAKE-GAME"
         },
         {
             "name": "Banking System",
-            "description": "A C language-based banking system allowing users to create accounts, deposit, withdraw, and check balances with a command-line interface.",
-            "url": "https://github.com/Parthibkarak71/parthib"
+            "description": "A command-line banking system developed in C that enables users to create accounts, deposit and withdraw funds, and check balances efficiently. Designed for simplicity,it features a text-based interface where users can manage financial transactions and monitor account details.",
+            "url": "https://github.com/Babaiii07/banking_system"
         },
         {
             "name": "Department-management-\nSystem",
-            "description": "A Python-based library management system using SQLite and Tkinter, enabling book additions, removals, and lending through a simple interface.",
+            "description": "This Python-based library management system uses SQLite for data storage and Tkinter for a graphical interface, allowing users to add, remove, and lend books seamlessly. Its user-friendly design simplifies library management, making it efficient for tracking book inventory and lending transactions.",
             "url": "https://github.com/Babaiii07/Department_management_system"
         },
         {
             "name": "Portfolio Website",
-            "description": "A dynamic portfolio website using Flask, showcasing skills, projects, and contact information in an organized format.",
+            "description": "This Flask-based portfolio website dynamically showcases skills, projects, and contact information in a visually organized format. It features smooth navigation through sections for personal introduction, professional achievements, project highlights, and a contact form, offering an interactive way to display expertise and connect with potential collaborators or employers.",
             "url": "https://github.com/Parthibkarak71/Portfolio_Parthib_-Flask"
         },
         {
             "name": "Server Chat System",
-            "description": "A simple server-based chatting system developed for secure and efficient communication over a network.",
+            "description": "This server-based chat system leverages socket programming to enable secure and efficient real-time communication over a network. With client-server architecture, it facilitates seamless message exchange between connected users, ensuring secure data transmission and user management. Ideal for simple messaging applications.",
             "url": "https://github.com/Parthibkarak71/server_chat-system"
+        },
+        {
+            "name": "Blog Generator",
+            "description": "An AI-driven blog generator powered by Llama 3.2 creates high-quality, unique content on-demand. It analyzes prompts, generating relevant, engaging articles with natural language processing. Designed for diverse topics, this system streamlines content creation for blogs, enhancing productivity and ensuring that generated articles are coherent, informative, and aligned with the given themes.",
+            "url": "https://github.com/Babaiii07/Blog-generations-with-AI"
+        },
+        {
+            "name": "Music Player",
+            "description": "A Tkinter-based music player allows users to play downloaded music files effortlessly. With a simple and intuitive interface, it enables users to browse, select, and control playback of their music library. Features include play, pause, skip, and volume adjustments, making it a convenient tool for music enthusiasts.",
+            "url": "https://github.com/Babaiii07/music-player"
+        },
+        {
+            "name": "HomePrice prediction",
+            "description": "I implemented three machine learning models—Decision Tree, Linear Regression, and Random Forest Regression—for predicting house prices in Dragon Estate. The models demonstrated varying performance metrics, with mean predictions of approximately 4.19, 4.22, and 3.49, respectively, showcasing their potential for accurate price forecasting",
+            "url": "https://github.com/Babaiii07/Dragon-Real-Estate-Price-prediction"
         }
     ]
 }

@@ -9,210 +9,205 @@
 {% endblock %}
 
 {% block body %}
+<section id="particles-js"></section> <!-- Particle Background -->
+
 <section class="contact-form-container">
-    <h2>Get in Touch</h2>
-    <form action="{{ url_for('contact_page') }}" method="post">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <input type="text" name="phone" placeholder="Your Phone Number" required>
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f4f4; /* Light background for better contrast */
-            color: #343a40;
-            margin: 0;
-            padding: 0;
-        }
-    
-        .header-container {
-            color: white;
-            padding: 50px 0;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
-    
-        .header-container h2 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-    
-        .textcard {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: inline-block;
-            border-radius: 10px;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 120px;
-            position: relative; /* Added for animation */
-            overflow: hidden; /* For image hover effect */
-        }
-    
-        .textcard img {
-            transition: transform 0.3s ease;
-        }
-    
-        .textcard:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-    
-        .textcard:hover img {
-            transform: scale(1.1);
-        }
-    
-        .contact-form-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-            max-width: 600px;
-            margin: 40px auto;
-        }
-    
-        .contact-form-container h2 {
-            margin-bottom: 20px;
-            font-size: 2rem;
-            color: #007bff;
-            animation: slideIn 0.5s ease-in-out;
-        }
-    
-        .contact-form-container input,
-        .contact-form-container textarea {
-            width: 90%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            transition: border 0.3s, box-shadow 0.3s;
-            font-size: 1rem;
-        }
-    
-        .contact-form-container input:focus,
-        .contact-form-container textarea:focus {
-            border: 1px solid #007bff;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-            outline: none;
-        }
-    
-        .contact-form-container button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-    
-        .contact-form-container button:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
-    
-        /* Animation Keyframes */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .textcard {
-                width: 100px; /* Adjust card width for smaller screens */
-            }
-    
-            .header-container h2 {
-                font-size: 2rem; /* Adjust header font size */
-            }
-    
-            .contact-form-container {
-                padding: 20px; /* Adjust padding for smaller screens */
-            }
-    
-            .contact-form-container h2 {
-                font-size: 1.5rem; /* Adjust heading font size */
-            }
-        }
-        .contact-form-container {
-            position: relative; /* Ensure the container is positioned for the pseudo-element */
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-            max-width: 600px;
-            margin: 40px auto;
-            color: #fff; /* Change text color to white for better contrast */
-            overflow: hidden; /* Prevent overflow of the pseudo-element */
-        }
-
-        .contact-form-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('/static/assets/971.jpg'); /* Background image */
-            background-size: cover; /* Cover the entire container */
-            background-position: center; /* Center the background image */
-            opacity: 0.5; /* Adjust this value to reduce transparency (0 is fully transparent, 1 is fully opaque) */
-            z-index: 1; /* Position below the text */
-        }
-
-        .contact-form-container h2,
-        .contact-form-container input,
-        .contact-form-container textarea,
-        .contact-form-container button {
-            position: relative; /* Position above the pseudo-element */
-            z-index: 2; /* Ensure text and form elements are above the overlay */
-        }
-
-        .contact-form-container input,
-        .contact-form-container textarea {
-            background-color: rgba(255, 255, 255, 0.8); /* Light background for input fields */
-            color: #343a40; /* Dark text color */
-        }
-
-        .contact-form-container button {
-            background-color: rgba(0, 123, 255, 0.9); /* Semi-transparent button background */
-        }
-
-        .contact-form-container button:hover {
-            background-color: rgba(0, 86, 179, 0.9); /* Darken on hover */
-        }
-    </style>
+    <div class="contact-inner">
+        <div class="form-container">
+            <h2>Get in Touch</h2>
+            <form action="{{ url_for('contact_page') }}" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="phone" placeholder="Your Phone Number" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        <div class="image-container">
+            <img src="/static/assets/971.jpg" alt="Get in Touch Image">
+        </div>
+    </div>
 </section>
-<section id="projects" class="project-container container">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #ffffff; /* Light background to enhance particle effect */
+    }
+
+    #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Behind all content */
+        top: 0;
+        left: 0;
+    }
+
+    .contact-form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        max-width: 900px;
+        margin: 40px auto;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-inner {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent */
+        border-radius: 10px;
+    }
+
+    .form-container {
+        padding: 30px;
+        width: 60%;
+        position: relative;
+        z-index: 2;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .form-container h2 {
+        margin-bottom: 20px;
+        font-size: 2rem;
+        color: #007bff;
+        animation: slideIn 0.5s ease-in-out;
+    }
+
+    .form-container input,
+    .form-container textarea {
+        width: 90%;
+        padding: 15px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: border 0.3s, box-shadow 0.3s;
+        font-size: 1rem;
+        background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent */
+        color: #343a40;
+    }
+
+    .form-container button {
+        padding: 10px 20px;
+        background-color: rgba(0, 123, 255, 0.9);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .form-container button:hover {
+        background-color: rgba(0, 86, 179, 0.9);
+        transform: translateY(-2px);
+    }
+
+    .image-container {
+        width: 40%;
+        overflow: hidden;
+        position: relative;
+        animation: slideInImage 1.5s ease-in-out;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .image-container:hover img {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInImage {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .contact-inner {
+            flex-direction: column;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 200px;
+        }
+
+        .form-container {
+            width: 100%;
+        }
+    }
+
+    /* Social Links */
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .social-icon {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-color: #f3f4f6;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-icon img {
+        width: 24px;
+        height: 24px;
+        transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.15);
+        background-color: #ddc722; /* Bright yellow background on hover */
+        box-shadow: 0 8px 15px rgba(76, 70, 70, 0.2);
+    }
+
+    .social-icon:hover img {
+        transform: scale(1.15);
+        filter: brightness(0.8); /* Slight dimming effect for contrast */
+    }
+</style>
+
+<section class="project-container container">
     <div class="social-links">
         <a href="https://github.com/Parthibkarak71" target="_blank" class="social-icon">
             <img src="https://img.icons8.com/material-outlined/24/000000/github.png" alt="GitHub" />
@@ -232,48 +227,41 @@
         <a href="https://www.facebook.com/parthib.karak/" target="_blank" class="social-icon">
             <img src="https://img.icons8.com/color/24/000000/facebook.png" alt="Facebook" />
         </a>
-        <style>
-          .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px;
-        }
-        
-        .social-icon {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background-color: #f3f4f6;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .social-icon img {
-            width: 24px;
-            height: 24px;
-            transition: transform 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            transform: scale(1.15);
-            background-color: #ddc722; /* Bright yellow background on hover */
-            box-shadow: 0 8px 15px rgba(76, 70, 70, 0.2);
-        }
-        
-        .social-icon:hover img {
-            transform: scale(1.15);
-            filter: brightness(0.8); /* Slight dimming effect for contrast */
-        }
-        
-        </style>
-        
     </div>
-    
-  
 </section>
+
+<!-- Particle.js Script -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#007bff" },
+            "shape": {
+                "type": "circle",
+                "stroke": { "width": 0, "color": "#000000" }
+            },
+            "opacity": { "value": 0.5, "random": true, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } },
+            "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } },
+            "line_linked": { "enable": true, "distance": 150, "color": "#007bff", "opacity": 0.4, "width": 1 },
+            "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": { "enable": true, "mode": "repulse" },
+                "onclick": { "enable": true, "mode": "push" },
+                "resize": true
+            },
+            "modes": {
+                "grab": { "distance": 400, "line_linked": { "opacity": 1 } },
+                "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "divide": 2 },
+                "repulse": { "distance": 200, "duration": 4 },
+                "push": { "particles_nb": 4 },
+                "remove": { "particles_nb": 2 }
+            }
+        },
+        "retina_detect": true
+    });
+</script>
 {% endblock %}
