@@ -2,6 +2,8 @@
 
 Welcome to my portfolio website! This site showcases my projects, skills, and ways to contact me. It is built using Flask, a micro web framework for Python.
 
+live preview: https://portfolio-parthib-flask-t7e3.vercel.app/
+
 ## Table of Contents
 
 - [Features](#features)
