@@ -11,7 +11,7 @@ app.secret_key = os.environ.get('FLASK_SECRET_KEY', secrets.token_hex(16))
 
 
 EDGE_CONFIG_API_URL = "https://edge-config.vercel.com/ecfg_pe7qtpumk2rrpz1ztcvvi8s7gfr0?token=c6499ee0-1599-4dd9-adcb-f07f5887e931"
-EDGE_CONFIG_TOKEN = ""
+EDGE_CONFIG_TOKEN = "c6499ee0-1599-4dd9-adcb-f07f5887e931"
 
 headers = {
     'Authorization': f'Bearer {EDGE_CONFIG_TOKEN}',
