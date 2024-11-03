@@ -4,19 +4,10 @@ import os
 import logging
 import csv
 import secrets
-import requests
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', secrets.token_hex(16)) 
 
-
-EDGE_CONFIG_API_URL = "https://edge-config.vercel.com/ecfg_pe7qtpumk2rrpz1ztcvvi8s7gfr0?token=c6499ee0-1599-4dd9-adcb-f07f5887e931"
-EDGE_CONFIG_TOKEN = "c6499ee0-1599-4dd9-adcb-f07f5887e931"
-
-headers = {
-    'Authorization': f'Bearer {EDGE_CONFIG_TOKEN}',
-    'Content-Type': 'application/json'
-}
 
 def get_projects():
     try:
@@ -59,28 +50,23 @@ def contact_page():
         email = request.form['email']
         phone = request.form['phone']
         message = request.form['message']
-        # Data to store in Edge Config
-        contact_data = {
-            "name": name,
-            "email": email,
-            "phone": phone,
-            "message": message
-        }
+        csv_file_path = os.path.join(app.root_path, 'dataStore.csv')
 
         try:
-            response = requests.post(
-                f"{EDGE_CONFIG_API_URL}/set-contact",  # Update with actual endpoint
-                headers=headers,
-                json=contact_data
-            )
-            response.raise_for_status()
-            return "Contact saved successfully!"
-        except requests.exceptions.RequestException as e:
-            print(f"Error saving contact: {e}")
-            return "Error saving contact.", 500
+            # Append the data to the CSV file
+            with open(csv_file_path, mode='a', newline='') as csv_file:
+                writer = csv.writer(csv_file)
+                # Write header only if the file is new
+                if csv_file.tell() == 0:
+                    writer.writerow(['Name', 'Email', 'Phone', 'Message'])  # Write header
+                writer.writerow([name, email, phone, message])
+            flash('Contact saved successfully!')
+            return redirect(url_for('contact_page'))
+        except Exception as e:
+            logging.error(f"Error saving contact: {e}")
+            flash('Error saving contact. Please try again.', 'error')
 
     return render_template('contact.html')
-
 @app.route('/projects')
 def projects_page():
     return render_template('projects.html', title="Projects", cards=get_projects())
