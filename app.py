@@ -4,9 +4,19 @@ import os
 import logging
 import csv
 import secrets
+import requests
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', secrets.token_hex(16)) 
+
+
+EDGE_CONFIG_API_URL = "https://edge-config.vercel.com/ecfg_pe7qtpumk2rrpz1ztcvvi8s7gfr0?token=c6499ee0-1599-4dd9-adcb-f07f5887e931"
+EDGE_CONFIG_TOKEN = ""
+
+headers = {
+    'Authorization': f'Bearer {EDGE_CONFIG_TOKEN}',
+    'Content-Type': 'application/json'
+}
 
 def get_projects():
     try:
@@ -49,14 +59,27 @@ def contact_page():
         email = request.form['email']
         phone = request.form['phone']
         message = request.form['message']
-        with open('contact_requests.csv', mode='a', newline='') as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow([name, email, phone, message])
+        # Data to store in Edge Config
+        contact_data = {
+            "name": name,
+            "email": email,
+            "phone": phone,
+            "message": message
+        }
 
-        flash('Your message has been sent successfully!', 'success')
-        return redirect(url_for('contact_page'))
+        try:
+            response = requests.post(
+                f"{EDGE_CONFIG_API_URL}/set-contact",  # Update with actual endpoint
+                headers=headers,
+                json=contact_data
+            )
+            response.raise_for_status()
+            return "Contact saved successfully!"
+        except requests.exceptions.RequestException as e:
+            print(f"Error saving contact: {e}")
+            return "Error saving contact.", 500
 
-    return render_template('contact.html', title='Contact Page')
+    return render_template('contact.html')
 
 @app.route('/projects')
 def projects_page():
