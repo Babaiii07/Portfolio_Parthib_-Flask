@@ -53,10 +53,8 @@ def contact_page():
         csv_file_path = os.path.join(app.root_path, 'dataStore.csv')
 
         try:
-            # Append the data to the CSV file
             with open(csv_file_path, mode='a', newline='') as csv_file:
                 writer = csv.writer(csv_file)
-                # Write header only if the file is new
                 if csv_file.tell() == 0:
                     writer.writerow(['Name', 'Email', 'Phone', 'Message'])  # Write header
                 writer.writerow([name, email, phone, message])
@@ -70,6 +68,10 @@ def contact_page():
 @app.route('/projects')
 def projects_page():
     return render_template('projects.html', title="Projects", cards=get_projects())
+
+@app.route('/skills')
+def skills_page():
+    return render_template('skill.html', title="Skills")
 
 @app.route('/resume')
 def resume():
