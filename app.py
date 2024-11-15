@@ -2,11 +2,21 @@ from flask import Flask, render_template, request, redirect, url_for, flash, sen
 import json
 import os
 import logging
-import csv
 import secrets
+import firebase_admin
+from firebase_admin import credentials, firestore
+
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('FLASK_SECRET_KEY', secrets.token_hex(16)) 
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', secrets.token_hex(16))
+
+
+cred_path = os.path.join(os.path.dirname(__file__), 'static', 'assets', 'portfolio.json')
+cred = credentials.Certificate(cred_path)
+firebase_admin.initialize_app(cred)
+
+
+db = firestore.client()
 
 
 def get_projects():
@@ -43,28 +53,6 @@ def home():
 def about_page():
     return render_template('about.html', title="About")
 
-@app.route('/contact', methods=['GET', 'POST'])
-def contact_page():
-    if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        phone = request.form['phone']
-        message = request.form['message']
-        csv_file_path = os.path.join(app.root_path, 'dataStore.csv')
-
-        try:
-            with open(csv_file_path, mode='a', newline='') as csv_file:
-                writer = csv.writer(csv_file)
-                if csv_file.tell() == 0:
-                    writer.writerow(['Name', 'Email', 'Phone', 'Message'])  # Write header
-                writer.writerow([name, email, phone, message])
-            flash('Contact saved successfully!')
-            return redirect(url_for('contact_page'))
-        except Exception as e:
-            logging.error(f"Error saving contact: {e}")
-            flash('Error saving contact. Please try again.', 'error')
-
-    return render_template('contact.html')
 @app.route('/projects')
 def projects_page():
     return render_template('projects.html', title="Projects", cards=get_projects())
@@ -76,3 +64,33 @@ def skills_page():
 @app.route('/resume')
 def resume():
     return send_file("static/assets/fucking_idiot.png", as_attachment=True)
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact_page():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        message = request.form.get('message')
+
+        logging.info(f"Received contact form data: Name={name}, Email={email}, Phone={phone}, Message={message}")
+
+  
+        contacts_ref = db.collection('contacts')
+
+        try:
+    
+            contacts_ref.add({
+                'name': name,
+                'email': email,
+                'phone': phone,
+                'message': message
+            })
+            flash('Contact saved successfully!', 'success')
+            return redirect(url_for('contact_page'))
+        except Exception as e:
+            logging.error(f"Error saving contact to Firebase: {e}")
+            flash('Error saving contact. Please try again.', 'error')
+            return render_template('contact.html')  
+
+    return render_template('contact.html')
