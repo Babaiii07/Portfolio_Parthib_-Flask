@@ -2,22 +2,18 @@ from flask import Flask, render_template, request, redirect, url_for, flash, sen
 import json
 import os
 import logging
-import secrets
+from dotenv import load_dotenv
 import firebase_admin
 from firebase_admin import credentials, firestore
-
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('FLASK_SECRET_KEY', secrets.token_hex(16))
-
-
-cred_path = os.path.join(os.path.dirname(__file__), 'static', 'assets', 'portfolio.json')
-cred = credentials.Certificate(cred_path)
+app.secret_key = os.getenv('FLASK_SECRET_KEY')
+firebase_credentials = json.loads(os.getenv('FIREBASE_CREDENTIALS'))
+cred = credentials.Certificate(firebase_credentials)
 firebase_admin.initialize_app(cred)
 
-
 db = firestore.client()
-
 
 def get_projects():
     try:
